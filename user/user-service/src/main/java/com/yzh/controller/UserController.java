@@ -37,5 +37,9 @@ public class UserController {
         return ResponseEntity.ok(data);
     }
 
+    @GetMapping("login")
+    public ResponseEntity<User> login(@RequestParam("userName")String userName,@RequestParam("password")String password) {
+        return ResponseEntity.ok(userService.login(userName,password));
+    }
 
 }

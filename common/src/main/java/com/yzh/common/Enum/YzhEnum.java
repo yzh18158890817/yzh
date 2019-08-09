@@ -7,6 +7,8 @@ package com.yzh.common.Enum;
  */
 public enum YzhEnum {
     USER_EXIST(400, "用户已存在"),
+    USER_NOTEXIST(400, "用户不存在"),
+    PASSWORD_ERROR(400, "密码错误"),
     COMMON_ERROR(0, "") {
         @Override
         public YzhEnum build(int status, String msg) {

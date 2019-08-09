@@ -12,6 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class CommonFiled {
-    Date created;
-    Date updated;
+    private Date created;
+    private Date updated;
 }
