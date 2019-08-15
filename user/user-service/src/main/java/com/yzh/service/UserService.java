@@ -5,11 +5,14 @@ import com.yzh.common.exception.YzhException;
 import com.yzh.mapper.UserMapper;
 import com.yzh.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author yzh
@@ -19,6 +22,9 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     public Boolean register(User user) {
         User u = new User();
@@ -49,6 +55,7 @@ public class UserService {
             throw new YzhException(YzhEnum.USER_NOTEXIST);
         }
         if (selectOne.getPassword().equals(password)) {
+            redisTemplate.opsForValue().set("loginUserName",userName,30, TimeUnit.MINUTES);
             return selectOne;
         }
         if (selectOne != null && !selectOne.getPassword().equals(password)) {

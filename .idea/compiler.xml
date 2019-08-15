@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="cors" />
+        <module name="poetry" />
         <module name="registry" />
         <module name="user-interface" />
         <module name="user-service" />
@@ -18,6 +19,7 @@
     <bytecodeTargetLevel>
       <module name="common" target="1.8" />
       <module name="cors" target="1.8" />
+      <module name="poetry" target="1.8" />
       <module name="registry" target="1.8" />
       <module name="user" target="1.8" />
       <module name="user-interface" target="1.8" />

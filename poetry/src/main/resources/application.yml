@@ -1,9 +1,8 @@
 server:
-  port: 10003
-
+  port: 10004
 spring:
   application:
-    name: user-service
+    name: poetry-service
   datasource:
     url: jdbc:mysql://localhost:3306/yzh
     username: root
@@ -11,8 +10,6 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
-  redis:
-    host: 127.0.0.1
 eureka:
   client:
     service-url:
